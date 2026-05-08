@@ -32,9 +32,10 @@
 - Доступ до інтернету для використання Google Translate API
 
 ## Налаштування
-1. Додайте свій Google Translate API ключ у файл `YmlFileSplitter.java`:
-   ```java
-   private static final String API_KEY = "YOUR_GOOGLE_TRANSLATE_API_KEY";
+1. Додайте свій Google Translate API ключ у змінну середовища:
+   ```bash
+   export GOOGLE_TRANSLATE_API_KEY="YOUR_GOOGLE_TRANSLATE_API_KEY"
+   ```
 2. Відкрийте проект у вашому улюбленому IDE (наприклад, IntelliJ IDEA).
 3.	Запустіть програму з головного класу YmlFileSplitter.
 

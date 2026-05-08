@@ -18,10 +18,14 @@ import org.apache.commons.text.StringEscapeUtils;
 
 public class YmlFileSplitter {
 
-    private static final String API_KEY = "AIzaSyA4bwXT2nXlxsgpBOuzWDv9YNORX0QfXvs";
+    private static final String API_KEY = System.getenv("GOOGLE_TRANSLATE_API_KEY");
 
     // Метод для перекладу тексту на українську мову
     public static String translateToUkrainian(String text) throws IOException {
+        if (API_KEY == null || API_KEY.isBlank()) {
+            throw new IOException("GOOGLE_TRANSLATE_API_KEY environment variable is not configured");
+        }
+
         String encodedText = URLEncoder.encode(text, "UTF-8");
         String url = String.format(
                 "https://translation.googleapis.com/language/translate/v2?key=%s&q=%s&target=uk",
